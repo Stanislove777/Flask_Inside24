@@ -1,0 +1,11 @@
+version: '3'
+services:
+  flask:
+    build: ./inside24
+    container_name: inside24
+    restart: on-failure
+    volumes:
+      - ./inside24:/inside24
+    ports:
+      - "5000:5000"
+    command: python inside24.py
