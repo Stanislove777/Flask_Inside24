@@ -1,0 +1,11 @@
+/api/login
+Запрос:
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Client", "password": "654321"}' http://localhost:5000/api/login
+Ответ:
+{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiQ2xpZW50In0.X3mjhe_xUzD1PnrNMocVO-A6j9NZqy0s1AVsFMBFSN0"}
+
+/api/message
+Запрос:
+curl -X POST -H "Content-Type: application/json" -H "token: Bearer_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiQ2xpZW50In0.X3mjhe_xUzD1PnrNMocVO-A6j9NZqy0s1AVsFMBFSN0" -d '{"name": "Client", "message": "histo"}' http://localhost:5000/api/message
+Ответ:
+{"description":"Message saved","status":"SUCCESS"}
