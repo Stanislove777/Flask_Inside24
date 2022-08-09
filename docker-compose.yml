@@ -1,4 +1,7 @@
 version: '3'
+networks:
+  inside_network:
+    driver: bridge
 services:
   flask:
     build: ./inside24
@@ -8,4 +11,15 @@ services:
       - ./inside24:/inside24
     ports:
       - "5000:5000"
+    networks:
+      - inside_network
     command: python inside24.py
+  sqlite3:
+    image: nouchka/sqlite3:latest
+    container_name: sqlite3
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./inside24/DataBase
+    networks:
+      - inside_network
